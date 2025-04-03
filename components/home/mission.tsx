@@ -13,7 +13,9 @@ import { Twitter } from "~/lib/icons/Twitter";
 import { Button } from "~/components/ui/button";
 import { CalendarDays } from "~/lib/icons/CalendarDays";
 import { MessageCircleQuestion } from "~/lib/icons/MessageCircleQuestion";
+import { useColorScheme } from "~/lib/useColorScheme";
 const Mission = () => {
+  const { isDarkColorScheme, setColorScheme } = useColorScheme();
   const [value, setValue] = React.useState("daily");
   return (
     <View className="flex-1 mx-4 mt-4">
@@ -37,10 +39,14 @@ const Mission = () => {
           <Accordion
             type="multiple"
             collapsible
-            defaultValue={["item-1"]}
+            defaultValue={[]}
             className="w-full max-w-sm native:max-w-md gap"
           >
-            <AccordionItem value="item-1" className="border-b-0">
+            <AccordionItem
+              value="daily_task1"
+              className={`border-b-0 border-t border-l border-r px-3 py-1 ${isDarkColorScheme ? 'border-stone-700' : 'border-gray-300'
+                }`}
+            >
               <AccordionTrigger>
                 <View className="flex-row items-center">
                   <Twitter
@@ -49,10 +55,10 @@ const Mission = () => {
                     className="w-4 h-4 text-foreground/70 mr-2"
                   />
                   <Text>Arichain X (Twitter) Mission</Text>
-                  
+
                 </View>
               </AccordionTrigger>
-              <AccordionContent>
+              <AccordionContent >
                 <Text>Yes. It adheres to the WAI-ARIA design pattern.</Text>
               </AccordionContent>
             </AccordionItem>
@@ -61,16 +67,20 @@ const Mission = () => {
                 <Text>GO</Text>
               </Button>
             </TouchableOpacity>
-            <AccordionItem value="item-2" className="border-b-0">
+            <AccordionItem
+              value="daily_task2"
+              className={`border-b-0 border-t border-l border-r px-3 py-1 ${isDarkColorScheme ? 'border-stone-700' : 'border-gray-300'
+                }`}
+            >
               <AccordionTrigger>
-              <View className="flex-row items-center">
+                <View className="flex-row items-center">
                   <CalendarDays
                     size={24}
                     strokeWidth={2.5}
                     className="w-4 h-4 text-foreground/70 mr-2"
                   />
                   <Text>Daily Check-in</Text>
-                  
+
                 </View>
               </AccordionTrigger>
               <AccordionContent>
@@ -85,16 +95,20 @@ const Mission = () => {
                 <Text>GO</Text>
               </Button>
             </TouchableOpacity>
-            <AccordionItem value="item-3" className="border-b-0">
+            <AccordionItem
+              value="daily_task3"
+              className={`border-b-0 border-t border-l border-r px-3 py-1 ${isDarkColorScheme ? 'border-stone-700' : 'border-gray-300'
+                }`}
+            >
               <AccordionTrigger>
-              <View className="flex-row items-center">
+                <View className="flex-row items-center">
                   <MessageCircleQuestion
                     size={24}
                     strokeWidth={2.5}
                     className="w-4 h-4 text-foreground/70 mr-2"
                   />
                   <Text>Daily Quiz</Text>
-                  
+
                 </View>
               </AccordionTrigger>
               <AccordionContent>
